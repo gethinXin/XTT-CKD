@@ -1,10 +1,11 @@
 <template>
-  <div ref="xttCharts" :style="{ width: '100%', height: '550px' }"></div>
+  <div ref="xttCharts" :style="{ width: '100%', height: '350px' }"></div>
+  <div><slot></slot></div>
 </template>
 
 <script>
 import * as echarts from 'echarts'
-import { onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 export default {
   props: {
@@ -15,18 +16,26 @@ export default {
   },
   setup(ctx) {
     const xttCharts = ref(null)
+    let myChart = null
     const initEcharts = () => {
-      const myChart = echarts.init(xttCharts.value)
+      myChart = echarts.init(xttCharts.value)
       if (myChart) {
         myChart.setOption(ctx.options)
       }
-      window.onresize = () => {
+    }
+    const eventListener = () => {
+      if (myChart) {
         myChart.resize()
       }
     }
 
     onMounted(() => {
       initEcharts()
+      window.addEventListener('resize', eventListener)
+    })
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', eventListener)
     })
 
     return {

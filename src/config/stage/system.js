@@ -23,7 +23,7 @@ const systemRouter = [
         name: null,
         title: '管理中心权限',
         type: 'view', // 取 route 为默认加载页
-        filePath: 'view/system/system-list.vue',
+        filePath: 'view/system/system-list2.vue',
         inNav: true,
       },
       {
@@ -31,7 +31,7 @@ const systemRouter = [
         name: null,
         title: '患者端权限',
         type: 'view', // 取 route 为默认加载页
-        filePath: 'view/system/system-list.vue',
+        filePath: 'view/system/system-list3.vue',
         inNav: true,
       },
       {
@@ -39,7 +39,7 @@ const systemRouter = [
         name: null,
         title: '字典维护',
         type: 'view', // 取 route 为默认加载页
-        filePath: 'view/system/system-list.vue',
+        filePath: 'view/system/system-list4.vue',
         inNav: true,
       },
     ],

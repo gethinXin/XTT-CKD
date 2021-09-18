@@ -234,7 +234,57 @@ export default systemRouter
 </x-card>
 ```
 
+#### ECharts图表组件说明
 
+- 组件名称：`x-chart`
+
+- 配置参数：`options`
+
+- 示例：
+
+  ```vue
+  <x-chart :options="options">
+      <!--向slot插槽传入内容，这里为示例内容，传入一个表格-->
+      <el-table :data="tableData">
+          <el-table-column label="名称" prop="name"></el-table-column>
+          <el-table-column label="地址" prop="address"></el-table-column>
+      </el-table>
+  </x-chart>
+  <script>
+  import { ref } from 'vue'
+  import xChart from '@/component/echarts/index.vue'
+  
+  export default {
+      components: {
+          xChart,
+      },
+      setup() {
+          const options={
+              // 参考 Echart API
+          }
+          const tableData=ref([
+              {
+                  id: 1,
+                  date: '2016-05-02',
+                  name: '用户管理',
+                  address: '上海市普陀区金沙江路 1518 弄',
+              },
+              {
+                  id: 2,
+                  date: '2016-05-04',
+                  name: '系统管理',
+                  address: '上海市普陀区金沙江路 1517 弄',
+              },
+          ])
+          return {
+              options,
+              tableData
+          }
+      }
+  }
+  ```
+
+  
 
 
 

@@ -60,7 +60,7 @@
       </div>
     </x-card>
     <el-divider></el-divider>
-    <el-space fill wrap :fillRatio="30" direction="horizontal" style=" width: 100%">
+    <el-space fill wrap :fillRatio="40" direction="horizontal" style=" width: 100%">
       <x-card title="测试CARD">
         <template #header-extra>
           <el-button class="button" type="text">操作按钮</el-button>
@@ -239,6 +239,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 0 30px;
+  overflow: hidden;
   .container-body,
   .list-content {
     flex: 1;

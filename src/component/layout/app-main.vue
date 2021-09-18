@@ -18,6 +18,10 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
   .wrapper {
     width: 100%;
     height: 100%;

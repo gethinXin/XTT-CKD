@@ -232,9 +232,9 @@ export default {
 }
 
 .el-main {
-  overflow-y: auto;
-  position: relative;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .backTop {
