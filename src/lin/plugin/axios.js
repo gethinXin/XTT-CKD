@@ -104,10 +104,12 @@ _axios.interceptors.request.use(
 // Add a response interceptor
 _axios.interceptors.response.use(
   async res => {
-    const { errcode: code, errmsg: message, status } = res.data
-    if (status.toString().charAt(0) === '1') {
-      return res.data?.rs
+    // 请求状态码为2开头的直接视为成功，直接返回数据
+    if (res.status.toString().charAt(0) === '2') {
+      return res.data
     }
+
+    const { errcode: code, errmsg: message } = res.data
 
     return new Promise(async (resolve, reject) => {
       let tipMessage = ''

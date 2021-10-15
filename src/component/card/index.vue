@@ -4,13 +4,7 @@
       <div :class="['el-card__header', headerBorder || 'none-border']">
         <div class="card-header">
           <div :class="[headerAvatar && 'avatar']">
-            <el-avatar
-              v-if="headerAvatar"
-              :size="30"
-              :shape="shape"
-              :src="defaultAvatar"
-              @error="errorHandler"
-            >
+            <el-avatar v-if="headerAvatar" :size="30" :shape="shape" :src="defaultAvatar" @error="errorHandler">
               <img :src="imgSrc" />
             </el-avatar>
             <span :class="[headerAvatar || 'title']">{{ title }}</span>
@@ -40,11 +34,11 @@ export default {
     },
     headerBorder: {
       type: Boolean,
-      default: true
+      default: true,
     },
     headerAvatar: {
       type: Boolean,
-      default: false
+      default: false,
     },
     bodyStyle: {
       type: [String, Object, Array],
@@ -56,28 +50,27 @@ export default {
     },
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     imgSrc: {
       type: String,
-      default: ''
+      default: '',
     },
     shape: {
       type: String,
       default: 'circle',
       validator(val) {
         return ['circle', 'square'].includes(val)
-      }
-    }
-
+      },
+    },
   },
   setup() {
     const errorHandler = () => true
     return {
       defaultAvatar,
-      errorHandler
+      errorHandler,
     }
-  }
+  },
 }
 </script>
 
@@ -88,7 +81,7 @@ export default {
   align-items: center;
 
   & > div > .title:before {
-    content: "";
+    content: '';
     width: 5px;
     height: 15px;
     display: inline-block;
@@ -105,18 +98,17 @@ export default {
     margin-left: 10px;
   }
 }
-::v-deep {
-  .el-icon-more {
-    transform: rotate(90deg);
-  }
-  .el-menu.el-menu--horizontal {
+
+::v-deep(.el-icon-more) {
+  transform: rotate(90deg);
+}
+::v-deep(.el-menu.el-menu--horizontal) {
+  border: none;
+}
+::v-deep(.el-card__header) {
+  padding: calc(var(--el-card-padding) - 2px) var(--el-card-padding);
+  &.none-border {
     border: none;
-  }
-  .el-card__header {
-    padding: calc(var(--el-card-padding) - 2px) var(--el-card-padding);
-    &.none-border {
-      border: none;
-    }
   }
 }
 </style>

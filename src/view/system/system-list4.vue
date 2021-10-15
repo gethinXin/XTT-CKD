@@ -1,7 +1,23 @@
 <template>
   <div class="container">
     <div class="container-body">
-      444
+      <el-table
+        :data="tableData"
+        row-key="id"
+        :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
+        style="width: 100%"
+      >
+        <el-table-column type="expand">
+          <template #default="props">
+            <p>State: {{ props.row.state }}</p>
+            <p>City: {{ props.row.city }}</p>
+            <p>Address: {{ props.row.address }}</p>
+            <p>Zip: {{ props.row.zip }}</p>
+          </template>
+        </el-table-column>
+        <el-table-column label="Date" prop="date" />
+        <el-table-column label="Name" prop="name" />
+      </el-table>
     </div>
   </div>
 </template>

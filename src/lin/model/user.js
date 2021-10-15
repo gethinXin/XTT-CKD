@@ -28,13 +28,16 @@ export default class User {
    * @param {string} password 密码
    */
   static async getToken(username, password) {
-    const tokens = await post('ckd/login2', {
+    const { accessToken, refreshToken } = await post('user-service/login/web', {
       account: username,
       password,
       tenantId: 30004,
     })
-    saveTokens(tokens, tokens)
-    return tokens
+    saveTokens(accessToken, refreshToken)
+    return {
+      accessToken,
+      refreshToken,
+    }
   }
 
   /**

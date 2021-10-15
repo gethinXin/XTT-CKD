@@ -36,16 +36,16 @@ module.exports = {
     },
   },
   devServer: {
-    proxy: {
-      '/ckd': {
-        target: 'http://localhost:8085',
+    /* proxy: {
+      '/user-service': {
+        target: 'http://localhost:30000',
         ws: true,
         changeOrigin: true,
         pathReWrite: {
-          '^/ckd': '',
+          '^/user-service': '',
         },
       },
-    },
+    }, */
   },
   // node_modules依赖项es6语法未转换问题
   transpileDependencies: ['vuex-persist'],
